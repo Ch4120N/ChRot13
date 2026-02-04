@@ -115,3 +115,23 @@ class ChRot13:
             return chr((ord(char) - ord('A') + 13) % 26 + ord('A'))
         return char
 
+    def rot13(self, text: str, decode: bool = False, quiet: bool = False, no_color: bool = False) -> str:
+        """
+        Apply ROT13 to text
+        Note: ROT13 is its own inverse, so encode and decode are the same
+        """
+        if not quiet:
+            if decode:
+                print(Decorators.process("Decoding ROT13...", no_color), file=sys.stderr)
+            else:
+                print(Decorators.process("Encoding ROT13...", no_color), file=sys.stderr)
+        
+        result = ''.join(self.rot13_char(char) for char in text)
+        
+        if not quiet:
+            if decode:
+                print(Decorators.success(f"Decoded {len(text)} characters", no_color), file=sys.stderr)
+            else:
+                print(Decorators.success(f"Encoded {len(text)} characters", no_color), file=sys.stderr)
+        
+        return result
