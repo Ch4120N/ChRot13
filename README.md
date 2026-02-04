@@ -226,6 +226,7 @@ If you find this tool useful, consider donating:
 </div>
 
 <style>
+
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
@@ -235,5 +236,7 @@ If you find this tool useful, consider donating:
     0% { background-position: 0 0; }
     100% { background-position: 16px 0; }
   }
+
 </style>
+
 </div>
