@@ -80,3 +80,10 @@ class Decorators:
         if no_color:
             return f"[ + ] {msg}"
         return f"{Colors.SUCCESS}[ + ]{Colors.ENDC} {msg}"
+    
+    @staticmethod
+    def error(msg: str, no_color: bool = False) -> str:
+        if no_color:
+            return f"[ ! ] {msg}"
+        return f"{Colors.ERROR}[ ! ]{Colors.ENDC} {msg}"
+    
