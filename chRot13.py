@@ -107,4 +107,11 @@ class ChRot13:
         self.author = "Ch4120N"
         self.project = "ChRot13"
     
-    
+    def rot13_char(self, char: str) -> str:
+        """Apply ROT13 transformation to a single character"""
+        if 'a' <= char <= 'z':
+            return chr((ord(char) - ord('a') + 13) % 26 + ord('a'))
+        elif 'A' <= char <= 'Z':
+            return chr((ord(char) - ord('A') + 13) % 26 + ord('A'))
+        return char
+
