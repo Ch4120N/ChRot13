@@ -86,4 +86,9 @@ class Decorators:
         if no_color:
             return f"[ ! ] {msg}"
         return f"{Colors.ERROR}[ ! ]{Colors.ENDC} {msg}"
-    
+
+    @staticmethod
+    def info(msg: str, no_color: bool = False) -> str:
+        if no_color:
+            return f"[ - ] {msg}"
+        return f"{Colors.INFO}[ - ]{Colors.ENDC} {msg}"
