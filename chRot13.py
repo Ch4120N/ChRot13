@@ -368,3 +368,7 @@ def main():
     if decode and encode:
         print(Decorators.error("Cannot specify both --encode and --decode", args.no_color), file=sys.stderr)
         sys.exit(1)
+
+    # Show banner for verbose mode
+    if args.verbose and not args.quiet:
+        tool.show_banner(args.no_color)
