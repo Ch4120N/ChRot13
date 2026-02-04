@@ -1,23 +1,43 @@
+
+
+<div align='center'>
+
 # ChRot13 - Advanced ROT13 Encoder/Decoder Tool
 
 ![Version](https://img.shields.io/badge/Version-1.1.0-green)
 ![LICENSE](https://img.shields.io/badge/License-GPLv3-orange)
 ![Platform](https://img.shields.io/badge/Platform-Cross--Platform-lightgrey)
 
-## 📖 Overview
 `ChRot13` is a powerful, cross-platform ROT13 encoding/decoding tool with beautiful UI and extensive features. ROT13 is a simple letter substitution cipher that replaces a letter with the 13th letter after it in the alphabet. It's its own inverse - encoding twice returns the original text.
 
+</div>
+
+---
+## 👨‍💻 Project Programmer
+> Ch4120N — [Ch4120N@Proton.me](mailto:Ch4120N@Proton.me)
+---
+## 🖼️ Screenshots
+
+---
+## 💻 Supported Platforms
+
+* **Linux** (All distributions)
+* **Windows** (7, 8, 10, 11)
+* **macOS** (All versions)
+
+---
+
 ## ✨ Features
-* Cross-platform: Works on Windows, Linux, and macOS
-* Multiple input methods: Files, stdin, or direct text input
-* Flexible output: Terminal, files, or pipes
-* Beautiful UI: Colored output with banners and status messages
-* Verbose/Quiet modes: Control output verbosity
-* No-color mode: For scripts and terminals without color support
-* Error handling: Robust error handling with clear messages
-* Signal handling: Graceful Ctrl+C handling
+* **Cross-platform**: Works on Windows, Linux, and macOS
+* **Multiple input methods**: Files, stdin, or direct text input
+* **Flexible output**: Terminal, files, or pipes
+* **Beautiful UI**: Colored output with banners and status messages
+* **Verbose/Quiet modes**: Control output verbosity
+* **No-color mode**: For scripts and terminals without color support
+* **Error handling**: Robust error handling with clear messages
+* **Signal handling**: Graceful Ctrl+C handling
 
-
+---
 ## 📋 Requirements
 * Python 3.6 or higher
 * No external dependencies required
@@ -39,7 +59,7 @@ cd ChRot13/
 ```
 ---
 ## 📖 Usage
-### Basic Examples
+### **Basic Examples**
 ```bash
 # Encode text
 python chRot13.py "Hello World"
@@ -61,7 +81,7 @@ cat file.txt | python chRot13.py -d
 python chRot13.py --text "Secret Message"
 ```
 
-### Advanced Examples
+### **Advanced Examples**
 ```bash
 # Show banner only
 python chRot13.py --banner
