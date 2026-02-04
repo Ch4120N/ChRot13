@@ -136,7 +136,6 @@ python chRot13.py --verbose --no-color -d -f encoded.txt -o decoded.txt
 | **Issue** | **Solution** |
 |-----------|--------------|
 | Colors not working on Windows | Ensure you're running on Windows 10+ or use `--no-color` |
-| 
 | Permission denied when writing files | Check file permissions or run as administrator |
 | Unicode errors with files | Files are read as **UTF-8**, ensure correct encoding |
 | Script not executable | Run with `python chRot13.py` or make executable with `chmod +x` |
