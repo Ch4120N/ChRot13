@@ -17,22 +17,33 @@ from typing import Optional, TextIO
 
 class Colors:
     """Cross-platform color handling"""
-    
-    @staticmethod
-    def init_colors(no_color: bool = False):
+    HEADER = '\033[95m'
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    SUCCESS = '\033[92m'
+    ERROR = '\033[91m'
+    INFO = '\033[94m'
+
+    @classmethod
+    def init_colors(self, no_color: bool = False):
         """Initialize color support based on platform"""
         if no_color or not sys.stderr.isatty():
-            Colors.HEADER = ''
-            Colors.BLUE = ''
-            Colors.GREEN = ''
-            Colors.WARNING = ''
-            Colors.FAIL = ''
-            Colors.ENDC = ''
-            Colors.BOLD = ''
-            Colors.UNDERLINE = ''
-            Colors.SUCCESS = ''
-            Colors.ERROR = ''
-            Colors.INFO = ''
+            self.HEADER = ''
+            self.BLUE = ''
+            self.GREEN = ''
+            self.WARNING = ''
+            self.FAIL = ''
+            self.ENDC = ''
+            self.BOLD = ''
+            self.UNDERLINE = ''
+            self.SUCCESS = ''
+            self.ERROR = ''
+            self.INFO = ''
             return
         
         system = platform.system()
@@ -45,31 +56,31 @@ class Colors:
                 kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
             except:
                 # Fallback if Windows API fails
-                Colors.HEADER = ''
-                Colors.BLUE = ''
-                Colors.GREEN = ''
-                Colors.WARNING = ''
-                Colors.FAIL = ''
-                Colors.ENDC = ''
-                Colors.BOLD = ''
-                Colors.UNDERLINE = ''
-                Colors.SUCCESS = ''
-                Colors.ERROR = ''
-                Colors.INFO = ''
+                self.HEADER = ''
+                self.BLUE = ''
+                self.GREEN = ''
+                self.WARNING = ''
+                self.FAIL = ''
+                self.ENDC = ''
+                self.BOLD = ''
+                self.UNDERLINE = ''
+                self.SUCCESS = ''
+                self.ERROR = ''
+                self.INFO = ''
                 return
         
         # Unix-like systems (Linux, macOS)
-        Colors.HEADER = '\033[95m'
-        Colors.BLUE = '\033[94m'
-        Colors.GREEN = '\033[92m'
-        Colors.WARNING = '\033[93m'
-        Colors.FAIL = '\033[91m'
-        Colors.ENDC = '\033[0m'
-        Colors.BOLD = '\033[1m'
-        Colors.UNDERLINE = '\033[4m'
-        Colors.SUCCESS = '\033[92m'
-        Colors.ERROR = '\033[91m'
-        Colors.INFO = '\033[94m'
+        self.HEADER = '\033[95m'
+        self.BLUE = '\033[94m'
+        self.GREEN = '\033[92m'
+        self.WARNING = '\033[93m'
+        self.FAIL = '\033[91m'
+        self.ENDC = '\033[0m'
+        self.BOLD = '\033[1m'
+        self.UNDERLINE = '\033[4m'
+        self.SUCCESS = '\033[92m'
+        self.ERROR = '\033[91m'
+        self.INFO = '\033[94m'
 
 
 class Decorators:
@@ -191,3 +202,24 @@ class ChRot13:
                 print(Decorators.success(f"Output written to {output}", no_color), file=sys.stderr)
         else:
             sys.stdout.write(result)
+    
+    def show_banner(self, no_color: bool = False) -> None:
+        """Display the tool banner"""
+        banner = ''
+
+        green = '' if no_color else Colors.GREEN
+        blue = '' if no_color else Colors.BLUE
+        error = '' if no_color else Colors.ERROR
+        header = '' if no_color else Colors.HEADER
+        warning = '' if no_color else Colors.WARNING
+
+        banner += f"{error} ________  ___  ___  ________  ________  _________   _____  ________     "
+        banner += "\n|\\   ____\\|\\  \\|\\  \\|\\   __  \\|\\   __  \\|\\___   ___\\/ __  \\|\\_____  \\    "
+        banner += "\n\\ \\  \\___|\\ \\  \\\\\\  \\ \\  \\|\\  \\ \\  \\|\\  \\|___ \\  \\_|\\/_|\\  \\|____|\\ /_   "
+        banner += "\n \\ \\  \\    \\ \\   __  \\ \\   _  _\\ \\  \\\\\\  \\   \\ \\  \\\\|/ \\ \\  \\    \\|\\  \\  "
+        banner += "\n  \\ \\  \\____\\ \\  \\ \\  \\ \\  \\\\  \\\\ \\  \\\\\\  \\   \\ \\  \\    \\ \\  \\  __\\_\\  \\ "
+        banner += "\n   \\ \\_______\\ \\__\\ \\__\\ \\__\\\\ _\\\\ \\_______\\   \\ \\__\\    \\ \\__\\|\\_______\\"
+        banner += "\n    \\|_______|\\|__|\\|__|\\|__|\\|__|\\|_______|    \\|__|     \\|__|\\|_______|"
+        banner += "\n"
+
+        print(banner, file=sys.stderr)
