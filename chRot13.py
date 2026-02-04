@@ -324,9 +324,9 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--decode', action='store_true', help='Decode text')
     parser.add_argument('-f', '--file', type=str, help='Input file (use - for stdin)')
     parser.add_argument('-o', '--output', type=str, help='Output file')
-    parser.add_argument('--text', type=str, help='Text to process')
-    parser.add_argument('--quiet', action='store_true', help='Suppress all status messages')
-    parser.add_argument('--verbose', action='store_true', help='Show detailed status messages')
+    parser.add_argument('-q', '--quiet', action='store_true', help='Suppress all status messages')
+    parser.add_argument('-V', '--verbose', action='store_true', help='Show detailed status messages')
+    parser.add_argument('-t', '--text', type=str, help='Text to process')
     parser.add_argument('--no-color', action='store_true', help='Disable colored output')
     parser.add_argument('--banner', action='store_true', help='Show banner only')
     
