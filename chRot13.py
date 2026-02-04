@@ -346,3 +346,10 @@ def main():
         tool.show_banner(args.no_color)
         sys.exit(0)
     
+    # Show version if requested
+    if args.version:
+        version_msg = f"ChRot13 v{tool.version} by {tool.author}"
+        if not args.no_color:
+            version_msg = f"{Colors.GREEN}ChRot13 v{tool.version}{Colors.ENDC} by {Colors.BLUE}{tool.author}{Colors.ENDC}"
+        print(version_msg, file=sys.stderr)
+        sys.exit(0)
