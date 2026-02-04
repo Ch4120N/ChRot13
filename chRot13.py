@@ -92,3 +92,10 @@ class Decorators:
         if no_color:
             return f"[ - ] {msg}"
         return f"{Colors.INFO}[ - ]{Colors.ENDC} {msg}"
+
+    @staticmethod
+    def process(msg: str, no_color: bool = False) -> str:
+        if no_color:
+            return f"[ * ] {msg}"
+        return f"{Colors.BLUE}[ * ]{Colors.ENDC} {msg}"
+
